@@ -1,9 +1,9 @@
-import Image from "next/image";
+import { Htag } from "../components";
 
 export default function Home(): JSX.Element {
   return (
     <div>
-      <h1>Топ текст</h1>
+      <Htag tag="h1">7.3</Htag>
     </div>
   );
 }
