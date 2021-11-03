@@ -1,26 +1,13 @@
 import { useState, useEffect } from "react";
-import { Htag, Button, P, Tag } from "../components";
+import { Htag, Button, P, Tag, Rating } from "../components";
 
 export default function Home(): JSX.Element {
-  const [counter, setCounter] = useState<number>(0);
-
-  useEffect(() => {
-    console.log("Counter " + counter);
-
-    return function cleanup() {
-      console.log("unmount");
-    };
-  }, []);
+  const [rating, setRating] = useState(4);
 
   return (
     <div>
-      <P fontSize="lg">{counter}</P>
       <Htag tag="h1">8.1</Htag>
-      <Button
-        appearance="primary"
-        arrow="right"
-        onClick={() => setCounter((prevValue) => prevValue + 1)}
-      >
+      <Button appearance="primary" arrow="right">
         Increment
       </Button>
       <Button appearance="ghost" arrow="down">
@@ -35,6 +22,8 @@ export default function Home(): JSX.Element {
         <Tag size="s" color="red" href="http://vcci.com.ua">
           Litle
         </Tag>
+
+        <Rating isEditable={true} rating={rating} setRating={setRating} />
       </div>
     </div>
   );
