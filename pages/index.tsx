@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Htag, Button, P, Tag, Rating } from "../components";
-
-export default function Home(): JSX.Element {
+import { withLayout } from "../layout";
+function Home(): JSX.Element {
   const [rating, setRating] = useState(4);
 
   return (
-    <div>
+    <>
       <Htag tag="h1">8.1</Htag>
       <Button appearance="primary" arrow="right">
         Increment
@@ -25,6 +25,8 @@ export default function Home(): JSX.Element {
 
         <Rating isEditable={true} rating={rating} setRating={setRating} />
       </div>
-    </div>
+    </>
   );
 }
+
+export default withLayout(Home);
