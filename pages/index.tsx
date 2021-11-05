@@ -6,7 +6,7 @@ function Home(): JSX.Element {
 
   return (
     <>
-      <Htag tag="h1">8.1</Htag>
+      <Htag tag="h1">10.5</Htag>
       <Button appearance="primary" arrow="right">
         Increment
       </Button>
