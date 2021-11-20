@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import Link from "next/link";
 import styles from "./Menu.module.css";
 import cn from "classnames";
 import { format } from "date-fns";
@@ -46,16 +47,18 @@ export const Menu = (): JSX.Element => {
       <>
         {firstLevelMenu.map((m) => (
           <div key={m.route}>
-            <a href={`/${m.route}`}>
-              <div
-                className={cn(styles.firstLevel, {
-                  [styles.firstLevelActive]: m.id == firstCategory,
-                })}
-              >
-                {m.icon}
-                <span>{m.name}</span>
-              </div>
-            </a>
+            <Link href={`/${m.route}`}>
+              <a>
+                <div
+                  className={cn(styles.firstLevel, {
+                    [styles.firstLevelActive]: m.id == firstCategory,
+                  })}
+                >
+                  {m.icon}
+                  <span>{m.name}</span>
+                </div>
+              </a>
+            </Link>
             {m.id == firstCategory && buildSecondLevel(m)}
           </div>
         ))}
@@ -84,15 +87,15 @@ export const Menu = (): JSX.Element => {
 
   const buildThirdLevel = (pages: PageItem[], route: string) => {
     return pages.map((p) => (
-      <a
-        key={p.title}
-        href={`/${route}/${p.alias}`}
-        className={cn(styles.thirdLevel, {
-          [styles.thirdLevelActive]: false,
-        })}
-      >
-        {p.category}
-      </a>
+      <Link key={p.title} href={`/${route}/${p.alias}`}>
+        <a
+          className={cn(styles.thirdLevel, {
+            [styles.thirdLevelActive]: false,
+          })}
+        >
+          {p.category}
+        </a>
+      </Link>
     ));
   };
 
