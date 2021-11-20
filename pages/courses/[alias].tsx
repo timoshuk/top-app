@@ -4,7 +4,7 @@ import { ParsedUrlQuery } from "querystring";
 import { useState, useEffect } from "react";
 import { MenuItem } from "../../interfaces/menu.interface";
 import { ProductModel } from "../../interfaces/product.interface";
-import { TopPageModel } from "../../interfaces/toppage.interface";
+import { TopPageModel } from "../../interfaces/page.interface";
 import { withLayout } from "../../layout/";
 
 const firstCategory = 0;
